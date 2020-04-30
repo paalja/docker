@@ -1,0 +1,74 @@
+docker --asdg
+docker --ehlpe
+docker --help
+docker ..df
+docker container -hhelp
+docker container logs
+docker container ls
+docker container ls -a
+docker container paal
+docker exec
+docker exec -it elk /bin/bash
+docker exec -it elk2 bash
+docker exec -it fb /bin/bash
+docker exec -it paal /bin/bash
+docker exec -it paal bash
+docker exec elk /bin/bash
+docker exec elk bash
+docker images
+docker kill elk
+docker kill paal
+docker list
+docker ls
+docker ls -a
+docker ls -al
+docker ps
+docker ps -a
+docker ps -al
+docker ps .a
+docker pull centos
+docker pull docker.elastic.co/beats/filebeat:7.6.2
+docker pull docker.io/sebp/elk
+docker remove elk
+docker restart
+docker restart elk
+docker rm --help
+docker rm elk
+docker rm elk2
+docker rm fb
+docker rm paal
+docker run -d -t --name paal -
+docker run -it docker_elk bash
+docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -it --name elk sebp/elk
+docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -p 9300:9300 -it --name elk sebp/elk
+docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -p 9300:9300 -it --name elk2 sebp/elk
+docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -p 9995:9995/udp -it --name elk sebp/elk
+docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -p 9995:9995/udp -p 5678:5678/udp -it --name elk sebp/elk
+docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -p 9995:9995/udp -p 5678:5678/udp -it --name elk sebp/elk --help
+docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -p 9995:9995/udp -p 5678:5678/udp -it --name elk sebp/elk2
+docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -p 9995:9995/udp -p 5678:5678/udp -it --name elk2 sebp/elk
+docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -p 9995:9995/udp -p 5678:5678/udp -it --name paal sebp/elk
+docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -p 9995:9995/udp -p 5678:5678/udp -it elk
+docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -p 9995:9995/udp -p 5678:5678/udp -p 514:514/udp -it --name elk sebp/elk
+docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -p 9995:9995/udp -p 5678:5678/udp 514:514/udp -it --name elk sebp/elk
+docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -p 9995:9995/udp -p 5678:5678/udp 753e1cc6de4c
+docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -p 9995:9995/udp -p 5678:5678/udp elk
+docker run -p 9995:9995/udp -it --name fb 0272ee9a7757
+docker run -p 9995:9995/udp -it --name fb docker.elastic.co/beats/filebeat
+docker run -p 9995:9995/udp -p 514:514/udp -it --name fb 0272ee9a7757
+docker search centos
+docker search elk
+docker start -p 5601:5601 -p 9200:9200 -p 5044:5044 -p 9995:9995/udp -p 5678:5678/udp 753e1cc6de4c
+docker start elk
+docker start paal
+docker stat
+docker stats
+docker stop centos
+docker stop elk
+docker stop elk2
+docker stop paal
+docker-current
+docker-current run
+history | grep docker
+systemctl start docker
+systemctl stop docker 
