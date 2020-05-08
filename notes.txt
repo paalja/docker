@@ -4,6 +4,8 @@ docker container ls
 docker container ls -a
 docker container paal
 
+docker-compose -f burrow-docker-compose.yml up -d
+
 docker exec
 docker exec -it elk /bin/bash
 docker exec -it elk2 bash
