@@ -23,7 +23,7 @@ docker ps -a
 docker pull centos
 docker pull docker.elastic.co/beats/filebeat:7.6.2
 docker pull docker.io/sebp/elk
-docker remove elk
+
 docker restart
 docker restart elk
 docker rm --help
