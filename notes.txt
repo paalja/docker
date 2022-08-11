@@ -75,3 +75,27 @@ docker rm $(docker ps -a -q)
 docker kill $(docker ps -a -q) & docker rm $(docker ps -a -q)
 
 docker inspect <dockerid> | grep -i port
+
+
+--- networks ---
+# create another bridge (driver)
+docker network create lol
+# attach docker to network
+docker run -it --rm --network lol --name thor busybox
+
+--- create macvlan "mode bridge" (also dot1q) --- different mac addresses in arp table
+docker network create -d macvlan --subnet 192.168.20.0/24 --gateway 192.168.20.1 -o parent=eth0 newlan
+docker run -itd --rm --network newlan --name thor --ip 192.168.20.5 nginx
+docker exec -it thor sh
+for i in {150..170}; do d run -itd --rm --network newlan --name thor$i --ip 192.168.20.$i busybox; done
+for i in {150..170}; do d exec -it thor$i /bin/ping 192.168.20.1 -c 1; done
+for i in {150..170}; do d stop thor$i; done
+
+--- create ipvlan network (l2 default) all hosts will get the same mac address in arp table ( same as host )
+d network create -d ipvlan --subnet 192.168.20.0/24 --gateway 192.168.20.1 -o ipvlan_mode=l2 -o parent=eth0 l2
+d network create -d ipvlan --subnet 192.168.20.0/24 --gateway 192.168.20.1 -o ipvlan_mode=l3 -o parent=eth0 l3
+docker run -itd --rm --network l2 --name thor --ip 192.168.20.5 busybox
+
+for i in {150..152}; do d run -itd --rm --network l2 --name thor$i --ip 192.168.20.$i busybox; done
+for i in {150..152}; do d exec -it thor$i /bin/ping 192.168.20.1 -c 1; done
+for i in {150..152}; do d stop thor$i; done
