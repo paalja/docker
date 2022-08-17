@@ -99,3 +99,18 @@ docker run -itd --rm --network l2 --name thor --ip 192.168.20.5 busybox
 for i in {150..152}; do d run -itd --rm --network l2 --name thor$i --ip 192.168.20.$i busybox; done
 for i in {150..152}; do d exec -it thor$i /bin/ping 192.168.20.1 -c 1; done
 for i in {150..152}; do d stop thor$i; done
+
+
+--- create ipvlan network (l3 default) 
+d network create -d ipvlan --subnet 192.168.21.0/24 -o ipvlan_mode=l3 -o parent=eth0 l3
+d network create -d ipvlan --subnet 192.168.21.0/24 -o ipvlan_mode=l3 -o parent=eth0 --subnet 192.168.22.0/24 l3
+
+docker run -itd --rm --network as10 --name thor --ip 192.168.21.5 busybox
+docker run -itd --rm --network l3 --name thor2 --ip 192.168.22.5 busybox
+
+docker network create --subnet 10.10.10.0/24 as10
+docker network create --subnet 10.10.20.0/24 as20
+docker run -itd --rm --network as10 --name thor10 busybox
+
+https://github.com/xcad2k/cheat-sheets/blob/main/infrastructure/docker/docker.md
+https://github.com/vrnetlab/vrnetlab
