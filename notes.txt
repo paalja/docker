@@ -3,6 +3,10 @@ docker --help
 add more mem - good for ELK
 sudo sysctl -w vm.max_map_count=262144
 
+docker commands without root
+-----------------------------
+sudo usermod -aG docker paal
+
 docker container ls
 docker container ls -a
 docker container paal
